@@ -16,6 +16,4 @@ public class CatsController : ControllerBase
   }
 
 
-
-
 }
