@@ -9,10 +9,13 @@ namespace csharp_cats_api.Controllers;
 public class CatsController : ControllerBase
 {
 
+  // NOTE set up dependency, has no value until constructor assigns a value
   private readonly CatsService _catsService;
 
-  public CatsController(CatsService catsService)
+  // constructor
+  public CatsController(CatsService catsService) // catsService is provided by Startup.cs
   {
+    // property on class is assigned value from parameter
     _catsService = catsService;
   }
 
