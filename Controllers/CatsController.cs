@@ -1,4 +1,5 @@
 // Creates package of public declared types in this file, and makes it accessible to other modules
+
 namespace csharp_cats_api.Controllers;
 
 [ApiController]
@@ -70,6 +71,20 @@ public class CatsController : ControllerBase
     {
       Cat cat = _catsService.GetCatById(catId);
       return Ok(cat);
+    }
+    catch (Exception exception)
+    {
+      return BadRequest(exception.Message);
+    }
+  }
+
+  [HttpDelete("{catId}")]
+  public ActionResult<string> DestroyCat(int catId)
+  {
+    try
+    {
+      string message = _catsService.DestroyCat(catId);
+      return Ok(message);
     }
     catch (Exception exception)
     {

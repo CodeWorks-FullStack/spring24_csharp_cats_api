@@ -1,3 +1,4 @@
+
 namespace csharp_cats_api.Repositories;
 
 
@@ -30,6 +31,13 @@ public class CatsRepository
     Cat cat = _db.Query<Cat>(sql, catData).FirstOrDefault(); // return the first row found, or return null
 
     return cat;
+  }
+
+  internal void DestroyCat(int catId)
+  {
+    string sql = "DELETE FROM cats WHERE id = @catId;";
+
+    _db.Execute(sql, new { catId });
   }
 
   internal List<Cat> GetAllCats()
