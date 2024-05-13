@@ -20,6 +20,13 @@ CREATE TABLE
 
 DROP TABLE cats;
 
+-- CREATE
+INSERT INTO
+  cats (name, age, color)
+VALUES
+  ("Georgie", 12, "Gray");
+
+-- CREATE MULTIPLE
 INSERT INTO
   cats (name, age, color, hasPolydactylity)
 VALUES
@@ -27,12 +34,6 @@ VALUES
   ("Smokey", 10, "Striped", false),
   ("Bandit", 11, "Tan", false),
   ("Bruce", 10, "White", false);
-
--- CREATE
-INSERT INTO
-  cats (name, age, color)
-VALUES
-  ("Georgie", 12, "Gray");
 
 -- READ
 SELECT
