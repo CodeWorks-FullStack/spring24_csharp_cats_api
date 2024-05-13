@@ -1,7 +1,7 @@
 
 namespace csharp_cats_api.Repositories;
 
-
+// NOTE repository is responsible for interacting with database
 public class CatsRepository
 {
 
@@ -54,7 +54,8 @@ public class CatsRepository
   {
     string sql = "SELECT * FROM cats WHERE id = @catId;";
 
-    //                                 {catId: 6}
+    // new {} creates an anonymous object in C#, or a generic object
+    //                              {catId: 6}
     Cat cat = _db.Query<Cat>(sql, new { catId }).FirstOrDefault();
 
     return cat;

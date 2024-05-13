@@ -11,13 +11,18 @@ CREATE TABLE
 
 CREATE TABLE
   cats (
+    -- PRIMARY KEY denotes this as the unique identifier for each row in the table. AUTO_INCREMENT assigns the ids for us
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -- VARCHAR(255) denotes a string data type with a max character limit of 255
     name VARCHAR(255) NOT NULL,
+    -- TINYINT UNSIGEND denotes a positive interger between 0 and 255 
     age TINYINT UNSIGNED NOT NULL,
+    -- BOOLEAN denotes a TINYINT value that is either 1 or 0
     hasPolydactylity BOOLEAN DEFAULT false NOT NULL,
     color VARCHAR(255) NOT NULL
   );
 
+-- removes table from database, you will need to do this to make changes to table after it has been created
 DROP TABLE cats;
 
 -- CREATE
