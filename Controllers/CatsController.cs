@@ -8,6 +8,16 @@ namespace csharp_cats_api.Controllers;
 // Node equivalent: export class CatsController extends BaseController
 public class CatsController : ControllerBase
 {
+
+  private readonly CatsService _catsService;
+
+  public CatsController(CatsService catsService)
+  {
+    _catsService = catsService;
+  }
+
+
+
   // Node equivalent: .get('/test', this.TestGet)
   [HttpGet("test")]
   public ActionResult<string> TestGet()
@@ -16,4 +26,21 @@ public class CatsController : ControllerBase
   }
 
 
+  [HttpGet]
+  public ActionResult<List<Cat>> GetAllCats()
+  {
+    try
+    {
+      // const cats = await catsService.getCats()
+      List<Cat> cats = _catsService.GetAllCats();
+
+      // response.send(cats)
+      return Ok(cats);
+    }
+    catch (Exception error)
+    {
+      // Node equivalent: next(error)
+      return BadRequest(error.Message);
+    }
+  }
 }
