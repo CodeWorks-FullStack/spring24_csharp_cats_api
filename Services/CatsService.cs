@@ -1,4 +1,5 @@
 
+
 namespace csharp_cats_api.Services;
 
 // NOTE service is now responsible for all business logic
@@ -9,6 +10,12 @@ public class CatsService
   public CatsService(CatsRepository repository)
   {
     _repository = repository;
+  }
+
+  internal Cat CreateCat(Cat catData)
+  {
+    Cat cat = _repository.CreateCat(catData);
+    return cat;
   }
 
 

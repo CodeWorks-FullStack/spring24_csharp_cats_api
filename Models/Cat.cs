@@ -6,5 +6,5 @@ public class Cat
   public string Name { get; set; }
   public int Age { get; set; }
   public bool HasPolydactylity { get; set; }
-  private string Color { get; set; }
+  public string Color { get; set; }
 }
