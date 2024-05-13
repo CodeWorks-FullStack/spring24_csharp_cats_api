@@ -1,5 +1,6 @@
 
 
+
 namespace csharp_cats_api.Services;
 
 // NOTE service is now responsible for all business logic
@@ -24,5 +25,17 @@ public class CatsService
   {
     List<Cat> cats = _repository.GetAllCats();
     return cats;
+  }
+
+  internal Cat GetCatById(int catId)
+  {
+    Cat cat = _repository.GetCatById(catId);
+
+    if (cat == null)
+    {
+      throw new Exception($"Invalid id: {catId}");
+    }
+
+    return cat;
   }
 }

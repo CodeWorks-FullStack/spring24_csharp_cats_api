@@ -1,3 +1,4 @@
+namespace csharp_cats_api.Repositories;
 
 
 public class CatsRepository
@@ -39,5 +40,15 @@ public class CatsRepository
     List<Cat> cats = _db.Query<Cat>(sql).ToList();
 
     return cats;
+  }
+
+  internal Cat GetCatById(int catId)
+  {
+    string sql = "SELECT * FROM cats WHERE id = @catId;";
+
+    //                                 {catId: 6}
+    Cat cat = _db.Query<Cat>(sql, new { catId }).FirstOrDefault();
+
+    return cat;
   }
 }

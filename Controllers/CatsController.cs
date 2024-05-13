@@ -60,4 +60,20 @@ public class CatsController : ControllerBase
       return BadRequest(error.Message);
     }
   }
+
+
+  // Node equivalent: .get('/:catId', this.getCatById)
+  [HttpGet("{catId}")]
+  public ActionResult<Cat> GetCatById(int catId) // const catId = request.params.catId
+  {
+    try
+    {
+      Cat cat = _catsService.GetCatById(catId);
+      return Ok(cat);
+    }
+    catch (Exception exception)
+    {
+      return BadRequest(exception.Message);
+    }
+  }
 }
